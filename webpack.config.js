@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
-//const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -18,6 +19,7 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      
         {
             test: /\.(png|svg|jpg|gif)$/,
             use: [
@@ -48,8 +50,10 @@ const config = {
     //new ExtractTextPlugin('styles.css'),
     
       
-    //new HtmlWebpackPlugin({ title: 'Output Management' })
+    new HtmlWebpackPlugin({ 
+      template:'index.html' })
   ],
+ 
 }
 
 module.exports = config;
