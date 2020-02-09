@@ -6,6 +6,7 @@ import React from 'react';
 
 import './styles.scss';
 import '@babel/polyfill';
+import ActualQuestion from './actualQuestion/question';
 
 class SongBird extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class SongBird extends React.Component {
           numberOfQuestions={this.state.numberOfQuestionsHeader}
           questionCategories = {APPDETAILS.questionCategories} 
         />
+        <ActualQuestion birdName ='thrush'/>
       
       </div>
     );
@@ -50,7 +52,8 @@ const APPDETAILS =
   {numberOfQuestionsHeader: 6,
     questionCategories: ['Warm up','Sparrow', 'Forester','Singing','Predatory','Sea' ], 
     stocked: true, 
-    name: 'Football'
+    name: 'Football',
+    Sparrow: ['jackdaw', 'jay', 'magpie', 'rook', 'sparrow', 'thrush']
   }
   
 ;
