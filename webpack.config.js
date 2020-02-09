@@ -14,6 +14,7 @@ const config = {
   mode: 'development',
   module: {
     rules: [
+      
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
