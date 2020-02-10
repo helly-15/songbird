@@ -13,3 +13,14 @@ body{
   box-sizing: border-box;
   
 }
+
+.answerOptionsWrapper{
+  display: flex;
+}
+.nextLevel{
+  width: 100%;
+  height: 30px;
+  background-color: rgb(156, 137, 88);
+  color: white;
+  font-weight: 600;
+}

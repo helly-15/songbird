@@ -1,0 +1,23 @@
+.answer{
+    width: 50%;
+    
+    
+    background-color: darkslategray;
+    &_button{
+        width:100%;
+        height: 50px;
+        background-color: rgb(51, 48, 48);
+        color: white;
+        
+        
+        
+        &__dot{
+            width:10px;
+            height: 10px;
+            vertical-align: middle;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+    
+}

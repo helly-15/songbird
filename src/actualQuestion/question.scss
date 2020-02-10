@@ -1,0 +1,54 @@
+.question{
+    display: flex;
+    position: relative;
+    &_player{
+        
+        justify-content: center;
+    }
+    &_description{
+        font-size: 20px;
+        font-weight: 600;
+        &__p{
+            font-size: 16px;
+            
+        }
+    }
+    
+}
+.rhap_additional-controls{
+    display: none;
+}
+.rhap_rewind-button{
+    display: none;
+}
+.rhap_forward-button{
+    display: none;
+}
+.rhap_volume-container{
+    display: none;
+}
+
+.rhap_current-time{
+    display: none;
+}
+.rhap_time{
+    display: none;
+}
+.rhap_container{
+    width:100px;
+    height: 30px;
+}
+.rhap_play-pause-button{
+    
+    width: 200px;
+    height: 155px;
+    position: absolute;
+    left:0;
+    background-color: transparent;
+}
+svg{
+    width: 20px;
+    height: 20px;
+    
+}
+ 
