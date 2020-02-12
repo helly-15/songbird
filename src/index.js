@@ -7,7 +7,7 @@ import ActualQuestion from './actualQuestion/question';
 import AnswerOptions from './answerOptions/answers';
 import AnswerDescription from './answerDescription/description';
 import birdsData from './data';
-import { changeAnswerOptions, getRandomInt } from './utils/utilFunctions';
+import { changeAnswerOptions, getRandomInt, findBirdDescription} from './utils/utilFunctions';
 
 import './styles.scss';
 import '@babel/polyfill';
@@ -27,7 +27,7 @@ class SongBird extends React.Component {
       visible: false,
       score : 0,
       clickedTimes:6,
-    
+      actuallyClickedBird: 'Crow',
     };
 
     this.changeLevel = this.changeLevel.bind(this);
@@ -46,6 +46,7 @@ class SongBird extends React.Component {
       birdName : changeAnswerOptions(newLevel)[getRandomInt(changeAnswerOptions(newLevel).length)],
       randomBird: getRandomInt(changeAnswerOptions(newLevel).length),
       clickedTimes:6,
+      actuallyClickedBird: Object.values(birdsData)[newLevel][0].name,
      
     }, () => this.forceUpdate());
     
@@ -64,18 +65,22 @@ class SongBird extends React.Component {
       this.setState({
       visible:true,
       score: newScore,
+      actuallyClickedBird: textOnButton,
     });
+    
     return true
     }
     else {
       let numOfClicks = this.state.clickedTimes-1;
       this.setState({
         clickedTimes: numOfClicks,
+        actuallyClickedBird: textOnButton,
       });
+      
       return false;
     }
   }
- //<AnswerDescription description={APPDETAILS.Sparrow} />
+ 
   render() {
     return (
       <div>
@@ -92,7 +97,13 @@ class SongBird extends React.Component {
           <AnswerOptions 
               birdNameArray={this.state.answerOptions} 
               handleAnswerButtonClick = {this.handleAnswerButtonClick} />
-         
+          <AnswerDescription 
+            description={findBirdDescription(Object.values(birdsData)[this.state.level],this.state.actuallyClickedBird)  }
+            birdName = {this.state.actuallyClickedBird}
+            image={this.state.birdImageAPI+this.state.actuallyClickedBird} 
+            audio = {this.state.birdSoundAPI+this.state.actuallyClickedBird}
+            visible = {true}
+            />
         </div>
         <button 
               className="nextLevel" 

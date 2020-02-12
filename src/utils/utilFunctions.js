@@ -13,4 +13,9 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-export { changeAnswerOptions, getRandomInt };
+function findBirdDescription(arrayOfObjects,birdName){
+  const result = arrayOfObjects.find( ({ name }) => name === birdName );
+  return result.description
+}
+
+export { changeAnswerOptions, getRandomInt, findBirdDescription };

@@ -9,6 +9,8 @@ export default class BirdImage extends React.Component {
     super(props);
     this.state = {
       src: '',
+      actualImage:'',
+      prevImage:'',
     };
   }
 
@@ -16,8 +18,23 @@ export default class BirdImage extends React.Component {
     fetch(this.props.birdPic)
       .then((res) => res.json())
       .then((response) => {
-        this.setState({ src: response.urls.regular });
+        this.setState({ 
+          src: response.urls.regular, 
+          prevImage :this.props.birdPic,
+        });
       });
+  }
+  componentDidUpdate(){
+    if ((this.state.prevImage)!==this.props.birdPic) {
+      fetch(this.props.birdPic)
+      .then((res) => res.json())
+      .then((response) => {
+        this.setState({ 
+          src: response.urls.regular, 
+          prevImage :this.props.birdPic,
+        });
+      });
+        }
   }
 
   render() {
