@@ -20,18 +20,19 @@ class SongBird extends React.Component {
     this.state = {
       level: numberOfStartingLevel,
       answerOptions: changeAnswerOptions(numberOfStartingLevel),
-      randomBird: getRandomInt(changeAnswerOptions(numberOfStartingLevel).length)
+      randomBird: getRandomInt(changeAnswerOptions(numberOfStartingLevel).length),
+      birdName: changeAnswerOptions(numberOfStartingLevel)[getRandomInt(changeAnswerOptions(numberOfStartingLevel).length)],
+      birdImageAPI : 'https://api.unsplash.com/photos/random?client_id=c7aea232f1d7606d334e46c735841d75b4bf86e6f5c139a99d85d94e5bd7c314&query=',
+      birdSoundAPI :'https://www.xeno-canto.org/api/2/recordings?query=',
+      visible: false,
+    
     };
 
     this.changeLevel = this.changeLevel.bind(this);
     this.handleInStockChange = this.handleInStockChange.bind(this);
-    this.getAnswerOptions = this.getAnswerOptions.bind(this);
   }
 
-  getAnswerOptions() {
-    return this.state.answerOptions;
-  }
-
+  
   changeLevel() {
     document.getElementsByClassName('header_button')[this.state.level].classList.remove('activeLevel');
     const newLevel = this.state.level + 1;
@@ -61,7 +62,7 @@ class SongBird extends React.Component {
         <Header
           questionCategories={this.props.questionCategories}
         />
-        <ActualQuestion birdName="thrush" />
+        <ActualQuestion visible = {this.state.visible} birdName={this.state.birdName} image={this.state.birdImageAPI+this.state.birdName} audio = {this.state.birdSoundAPI+this.state.birdName} />
         <div className="answerOptionsWrapper">
           <AnswerOptions birdNameArray={this.state.answerOptions} />
           <AnswerDescription description={APPDETAILS.Sparrow} />

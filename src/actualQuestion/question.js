@@ -3,12 +3,13 @@ import './question.scss';
 import '@babel/polyfill';
 import AudioPlayer from 'react-h5-audio-player';
 import BirdImage from '../birdImage/birdImage';
+import neutralBirdImage from './assets/neutralBird.png';
 
 class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      audio: 'https://www.xeno-canto.org/sounds/uploaded/WHBIHHNZVS/XC418793-Levant%20Sparrow%20Hawk%20Lisi%20Lake%2002%20June%202018.mp3',
+     // audio: 'https://www.xeno-canto.org/sounds/uploaded/WHBIHHNZVS/XC418793-Levant%20Sparrow%20Hawk%20Lisi%20Lake%2002%20June%202018.mp3',
       proxyUrl: 'https://cors-anywhere.herokuapp.com/',
     };
   }
@@ -50,28 +51,46 @@ export default class ActualQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      birdname: 'Sparrow',
-      image: 'https://api.unsplash.com/photos/random?query=sparrow&client_id=c7aea232f1d7606d334e46c735841d75b4bf86e6f5c139a99d85d94e5bd7c314',
-      visible: true,
-      audio: 'https://www.xeno-canto.org/api/2/recordings?query=sparrow',
+      visible: false,
+      
     };
   }
 
+
   render() {
-    return (
-      <div className="question">
-        <BirdImage birdPic={this.state.image} />
+    if (this.props.visible ===false){
+      return (
+        <div className="question">
+        <img className="neutralBirdImage" src={neutralBirdImage} alt="Logo" />
         <div className="question_player">
-          <Player audio={this.state.audio} birdname={this.state.birdname} />
+          <Player audio={this.props.audio} birdname={this.props.birdName} />
 
         </div>
         <div className="question_description">
-          {this.state.birdname}
+          Who am I?
+          <p className="question_description__p">
+            Wait 3 seconds and click on the bird to make it twit :)
+          </p>
+        </div>
+      </div>
+      )
+    }
+    else{
+      return (
+      <div className="question">
+        <BirdImage birdPic={this.props.image} />
+        <div className="question_player">
+          <Player audio={this.props.audio} birdname={this.props.birdName} />
+
+        </div>
+        <div className="question_description">
+          {this.props.birdName}
           <p className="question_description__p">
             Click on the bird to make it twit :)
           </p>
         </div>
       </div>
     );
+  }
   }
 }
