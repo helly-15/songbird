@@ -9,8 +9,8 @@ const birdsData = {
     },
     {
       id: 2,
-      name: 'Crane',
-      description: 'The cranes beauty and spectacular mating dances have made them highly symbolic birds in many cultures with records dating back to ancient times',
+      name: 'Stork',
+      description: 'The stork beauty and spectacular mating dances have made them highly symbolic birds in many cultures with records dating back to ancient times',
       image: 'https://live.staticflickr.com/65535/49221158846_b0b69a58f1.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC512582-190604_1087_Grus_tok.mp3',
     },
@@ -31,7 +31,7 @@ const birdsData = {
     },
     {
       id: 5,
-      name: 'Cuckoo',
+      name: 'Cuculus',
       species: 'Cuculus canorus',
       description: 'Cuckoos are often highly secretive and in many cases best known for their wide repertoire of calls.',
       image: 'https://live.staticflickr.com/65535/48377838151_e15f430ec1.jpg',

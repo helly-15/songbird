@@ -41,8 +41,6 @@ export default class Header extends React.Component {
     super(props);
     this.state = {
       logo: LogoImage,
-
-      points: 0,
       questionCategories: this.props.questionCategories,
     };
   }
@@ -56,7 +54,7 @@ export default class Header extends React.Component {
             logo={this.state.logo}
           />
           <Score
-            points={this.state.points}
+            points={this.props.score}
           />
         </div>
         <div className="header_buttons">

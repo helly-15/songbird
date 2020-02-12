@@ -25,11 +25,13 @@ class SongBird extends React.Component {
       birdImageAPI : 'https://api.unsplash.com/photos/random?client_id=c7aea232f1d7606d334e46c735841d75b4bf86e6f5c139a99d85d94e5bd7c314&query=',
       birdSoundAPI :'https://www.xeno-canto.org/api/2/recordings?query=',
       visible: false,
+      score : 0,
+      clickedTimes:6,
     
     };
 
     this.changeLevel = this.changeLevel.bind(this);
-    this.handleInStockChange = this.handleInStockChange.bind(this);
+    this.handleAnswerButtonClick = this.handleAnswerButtonClick.bind(this);
   }
 
   
@@ -40,6 +42,11 @@ class SongBird extends React.Component {
     this.setState({
       level: newLevel,
       answerOptions: changeAnswerOptions(newLevel),
+      visible: false,
+      birdName : changeAnswerOptions(newLevel)[getRandomInt(changeAnswerOptions(newLevel).length)],
+      randomBird: getRandomInt(changeAnswerOptions(newLevel).length),
+      clickedTimes:6,
+     
     }, () => this.forceUpdate());
     
     document.getElementsByClassName('header_button')[newLevel].classList.add('activeLevel');
@@ -50,24 +57,46 @@ class SongBird extends React.Component {
 
     }
   }
-  handleInStockChange(inStockOnly) {
-    this.setState({
-      inStockOnly,
+  handleAnswerButtonClick(textOnButton) {
+    console.log (textOnButton + this.state.birdName);
+    if (textOnButton === this.state.birdName){
+      let newScore = this.state.score+this.state.clickedTimes;
+      this.setState({
+      visible:true,
+      score: newScore,
     });
+    return true
+    }
+    else {
+      let numOfClicks = this.state.clickedTimes-1;
+      this.setState({
+        clickedTimes: numOfClicks,
+      });
+      return false;
+    }
   }
-
+ //<AnswerDescription description={APPDETAILS.Sparrow} />
   render() {
     return (
       <div>
         <Header
-          questionCategories={this.props.questionCategories}
+              questionCategories={this.props.questionCategories}
+              score ={this.state.score}
         />
-        <ActualQuestion visible = {this.state.visible} birdName={this.state.birdName} image={this.state.birdImageAPI+this.state.birdName} audio = {this.state.birdSoundAPI+this.state.birdName} />
+        <ActualQuestion 
+              visible = {this.state.visible} 
+              birdName={this.state.birdName} 
+              image={this.state.birdImageAPI+this.state.birdName} 
+              audio = {this.state.birdSoundAPI+this.state.birdName} />
         <div className="answerOptionsWrapper">
-          <AnswerOptions birdNameArray={this.state.answerOptions} />
-          <AnswerDescription description={APPDETAILS.Sparrow} />
+          <AnswerOptions 
+              birdNameArray={this.state.answerOptions} 
+              handleAnswerButtonClick = {this.handleAnswerButtonClick} />
+         
         </div>
-        <button className="nextLevel" onClick={this.changeLevel}>
+        <button 
+              className="nextLevel" 
+              onClick={this.changeLevel}>
           Next birds please!
         </button>
       </div>
