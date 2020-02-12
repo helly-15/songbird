@@ -5,6 +5,7 @@ body{
   color: #fff;
   text-align: left;
   background-color: #222;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
 }
 
 
@@ -14,15 +15,19 @@ body{
   
 }
 
-.answerOptionsWrapper{
-  display: flex;
-}
+
 .nextLevel{
   width: 100%;
-  height: 30px;
-  background-color: rgb(156, 137, 88);
+  height: 70px;
+  background-color: rgb(37, 117, 87);
   color: white;
   font-weight: 600;
+  padding-left: 10px;
+  font-size: x-large;
+  margin-top: 20px;
+  
+  border-style: hidden;
+  
 }
 .greenButton{
   background-color: green;

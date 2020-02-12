@@ -59,7 +59,7 @@ class SongBird extends React.Component {
     }
   }
   handleAnswerButtonClick(textOnButton) {
-    console.log (textOnButton + this.state.birdName);
+   
     if (textOnButton === this.state.birdName){
       let newScore = this.state.score+this.state.clickedTimes;
       this.setState({
@@ -82,6 +82,7 @@ class SongBird extends React.Component {
   }
  
   render() {
+    
     return (
       <div>
         <Header

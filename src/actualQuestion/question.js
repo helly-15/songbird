@@ -21,7 +21,7 @@ class Player extends React.Component {
 
          .then((response) => {
            this.setState({ audio: (`https:${response.recordings[0].file}`) });
-           console.log ('зашел в фетч');
+           
          })
          .catch((error) => {
             console.log('Audio request failed', error);
@@ -37,7 +37,7 @@ class Player extends React.Component {
                audio: (`https:${response.recordings[0].file}`),
               prevAudio:this.state.proxyUrl + this.props.audio
             });
-           console.log ('зашел в апдейт');
+           
          })
          .catch((error) => {
             console.log('Audio request failed', error);
@@ -46,11 +46,11 @@ class Player extends React.Component {
   }
 
   render() {
-    console.log ('защел в плеер с такой ссылкой' + this.state.audio)
+    
     return (
       <AudioPlayer
         autoPlayAfterSrcChange={false}
-        controls
+        
         autoplay={false}
         src={this.state.audio}
         onPlay={(e) => console.log('onPlay')}
@@ -75,7 +75,7 @@ export default class ActualQuestion extends React.Component {
     
 
   render() {
-    console.log ('зашел в рендер картинки и аудио')
+    
     if (this.props.visible ===false){
       return (
         <div className="question">

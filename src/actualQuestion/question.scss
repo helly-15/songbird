@@ -1,17 +1,41 @@
 .question{
     display: flex;
     position: relative;
-    &_player{
+    padding-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media (min-width: 650px) and (max-width: 980px) {
+        padding-left: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;        
+      }
+      @media  (max-width: 650px) {
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    
         
+      }
+    &_player{
         justify-content: center;
     }
     &_description{
-        font-size: 20px;
+        font-size: xx-large;
         font-weight: 600;
         &__p{
-            font-size: 16px;
-            
+            font-size: x-large;
+            @media  (max-width: 650px) {
+                font-size: small;
+                display: none;
+              }
+              @media (min-width: 650px) and (max-width: 980px) {
+                font-size: medium;        
+              }
         }
+        @media  (max-width: 650px) {
+            font-size: small;
+          }
+       
     }
     
 }
@@ -35,7 +59,7 @@
     display: none;
 }
 .rhap_container{
-    width:100px;
+    width:30px;
     height: 30px;
 }
 .rhap_play-pause-button{
@@ -43,8 +67,17 @@
     width: 200px;
     height: 155px;
     position: absolute;
-    left:0;
+    left:100px;
     background-color: transparent;
+    @media (min-width: 650px) and (max-width: 980px) {
+        left:20px;
+        width: 155px;
+      }
+      @media  (max-width: 650px) {
+        left:0;
+        width: 155px;
+        
+      }
 }
 svg{
     width: 20px;
@@ -55,5 +88,14 @@ svg{
     width:200px;
     height: 155px;
     background-size: contain;
+    @media (min-width: 650px) and (max-width: 980px) {
+        
+        width: 155px;
+      }
+      @media  (max-width: 650px) {
+       
+        width: 155px;
+        
+      }
 }
  
