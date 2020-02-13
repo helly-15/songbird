@@ -1,0 +1,14 @@
+.birdImage{
+    width:200px;
+    height: 155px;
+    background-size: contain;
+    @media (min-width: 650px) and (max-width: 980px) {
+        
+        width: 155px;
+      }
+      @media  (max-width: 650px) {
+       
+        width: 155px;
+        
+      }
+}

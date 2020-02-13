@@ -1,0 +1,15 @@
+.description{
+    padding-left: 20px;
+    width:50%;
+    font-size: x-large;
+    @media  (max-width: 650px) {
+        font-size: small;
+      }
+    &_text{
+        color: white;
+        font-size: large;
+        @media  (max-width: 650px) {
+            font-size: small;
+          }
+    }
+}

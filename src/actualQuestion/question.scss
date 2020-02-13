@@ -1,0 +1,101 @@
+.question{
+    display: flex;
+    position: relative;
+    padding-left: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media (min-width: 650px) and (max-width: 980px) {
+        padding-left: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;        
+      }
+      @media  (max-width: 650px) {
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    
+        
+      }
+    &_player{
+        justify-content: center;
+    }
+    &_description{
+        font-size: xx-large;
+        font-weight: 600;
+        &__p{
+            font-size: x-large;
+            @media  (max-width: 650px) {
+                font-size: small;
+                display: none;
+              }
+              @media (min-width: 650px) and (max-width: 980px) {
+                font-size: medium;        
+              }
+        }
+        @media  (max-width: 650px) {
+            font-size: small;
+          }
+       
+    }
+    
+}
+.rhap_additional-controls{
+    display: none;
+}
+.rhap_rewind-button{
+    display: none;
+}
+.rhap_forward-button{
+    display: none;
+}
+.rhap_volume-container{
+    display: none;
+}
+
+.rhap_current-time{
+    display: none;
+}
+.rhap_time{
+    display: none;
+}
+.rhap_container{
+    width:30px;
+    height: 30px;
+}
+.rhap_play-pause-button{
+    
+    width: 200px;
+    height: 155px;
+    position: absolute;
+    left:100px;
+    background-color: transparent;
+    @media (min-width: 650px) and (max-width: 980px) {
+        left:20px;
+        width: 155px;
+      }
+      @media  (max-width: 650px) {
+        left:0;
+        width: 155px;
+        
+      }
+}
+svg{
+    width: 20px;
+    height: 20px;
+    
+}
+.neutralBirdImage{
+    width:200px;
+    height: 155px;
+    background-size: contain;
+    @media (min-width: 650px) and (max-width: 980px) {
+        
+        width: 155px;
+      }
+      @media  (max-width: 650px) {
+       
+        width: 155px;
+        
+      }
+}
+ 

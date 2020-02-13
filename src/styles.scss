@@ -1,0 +1,37 @@
+body{
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+  text-align: left;
+  background-color: #222;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
+
+
+#root{
+  
+  box-sizing: border-box;
+  
+}
+
+
+.nextLevel{
+  width: 100%;
+  height: 70px;
+  background-color: rgb(37, 117, 87);
+  color: white;
+  font-weight: 600;
+  padding-left: 10px;
+  font-size: x-large;
+  margin-top: 20px;
+  
+  border-style: hidden;
+  
+}
+.greenButton{
+  background-color: green;
+}
+.redButton{
+  background-color: red;
+}
