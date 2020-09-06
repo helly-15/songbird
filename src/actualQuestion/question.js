@@ -5,54 +5,56 @@ import AudioPlayer from 'react-h5-audio-player';
 import BirdImage from '../birdImage/birdImage';
 import neutralBirdImage from './assets/neutralBird.png';
 
+
 class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       audio: '',
-      proxyUrl: 'https://cors-anywhere.herokuapp.com/',
+      //proxyUrl: 'https://cors-anywhere.herokuapp.com/',
       prevAudio:'',
     };
   }
 
-  componentDidMount() {
-        fetch(this.state.proxyUrl + this.props.audio)
-          .then((blob) => blob.json())
-
-         .then((response) => {
-           this.setState({ audio: (`https:${response.recordings[0].file}`) });
-           
-         })
-         .catch((error) => {
-            console.log('Audio request failed', error);
-          });
-  }
+  // componentDidMount() {
+  //       fetch(this.state.proxyUrl + this.props.audio)
+  //         .then((blob) => blob.json())
+  //
+  //        .then((response) => {
+  //          this.setState({ audio: (`https:${response.recordings[0].file}`) });
+  //
+  //        })
+  //        .catch((error) => {
+  //           console.log('Audio request failed', error);
+  //         });
+  // }
   componentDidUpdate(){
-    if ((this.state.proxyUrl + this.props.audio)!==this.state.prevAudio) {
-    fetch(this.state.proxyUrl + this.props.audio)
-          .then((blob) => blob.json())
-
-         .then((response) => {
-           this.setState({ 
-               audio: (`https:${response.recordings[0].file}`),
-              prevAudio:this.state.proxyUrl + this.props.audio
+    if (( this.props.audio)!==this.state.prevAudio) {
+    // fetch(this.state.proxyUrl + this.props.audio)
+    //       .then((blob) => blob.json())
+    //
+    //      .then((response) => {
+           this.setState({
+              // audio: (`/../audio/Crow.mp3`),
+              //prevAudio:this.state.proxyUrl + this.props.audio
+             prevAudio:this.props.audio
             });
-           
-         })
-         .catch((error) => {
-            console.log('Audio request failed', error);
-          });
-        }
+
+         }
+         // .catch((error) => {
+         //    console.log('Audio request failed', error);
+         //  });
+
   }
 
   render() {
-    
+
     return (
       <AudioPlayer
         autoPlayAfterSrcChange={false}
-        
+
         autoplay={false}
-        src={this.state.audio}
+        src={this.props.audio}
         onPlay={(e) => console.log('onPlay')}
                     // other props here
         volume={1}
@@ -72,16 +74,16 @@ export default class ActualQuestion extends React.Component {
     };
   }
 
-    
+
 
   render() {
-    
+
     if (this.props.visible ===false){
       return (
         <div className="question">
         <img className="neutralBirdImage" src={neutralBirdImage} alt="Logo" />
         <div className="question_player">
-          
+
           <Player audio={this.props.audio}  />
 
         </div>
